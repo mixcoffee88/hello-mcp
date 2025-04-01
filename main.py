@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
+from typing import Optional
 
 app = FastAPI(
     title="Hello MCP API",
@@ -10,7 +11,7 @@ app = FastAPI(
 class Item(BaseModel):
     id: int
     name: str
-    description: str | None = None
+    description: Optional[str] = None
 
 @app.get("/")
 async def read_root():
